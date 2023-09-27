@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Platos from './Components/BuscadorPlatos';
+import Platos from './Components/Platos';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Platos></Platos>
-      <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
     </View>
   );
