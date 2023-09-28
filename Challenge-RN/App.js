@@ -4,15 +4,17 @@ import Platos from './Components/Platos';
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import DetallePlatos from './Components/DetallePlatos'
 
 const Stack = createStackNavigator();
-
 export default function App() {
   return (
     <NavigationContainer>
      <Stack.Navigator>
       <Stack.Screen name="Platos" component={Platos} />
-    </Stack.Navigator></NavigationContainer>
+      <Stack.Screen name="DetallePlato" component={DetallePlatos}/>
+    </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native-web";
 import { useEffect } from "react";
 import CardPlatos from "./CardPlatos";
-import { useNavigation } from '@react-navigation/native';
 
 const Platos = () => {
-    const navigation = useNavigation();
 
     const [listaPlatos, setListaPlatos] = useState([])
     useEffect(() => {
-        fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
+        // fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
+        fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=f19d2588061a428fbf8602627a07fde4`)
 
             .then(res => res.json())
             .then(data => {
@@ -26,7 +25,7 @@ const Platos = () => {
                 listaPlatos.map(item =>(
                     <View style={styles.card}>
                     <CardPlatos
-                    key = {item.id} nombre = {item.title} imagen = {item.image}
+                    idPlato = {item.id} nombre = {item.title} imagen = {item.image}
                     />
                     </View>
                 ))
@@ -36,7 +35,7 @@ const Platos = () => {
 }
 const styles = StyleSheet.create({
     card: {
-        width: 250,
+        width: 350,
         height: 200,
         borderRadius: 8,
         top: 7,
