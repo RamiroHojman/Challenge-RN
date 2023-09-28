@@ -1,13 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Platos from './Components/Platos';
+import 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Platos></Platos>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+     <Stack.Navigator>
+      <Stack.Screen name="Platos" component={Platos} />
+    </Stack.Navigator></NavigationContainer>
   );
 }
 
