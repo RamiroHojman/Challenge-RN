@@ -4,7 +4,6 @@ import { useNavigation } from '@react-navigation/native';
 
 const CardPlatos = (props) => {
   const navigation = useNavigation();
-
     return(
         <View style={styles.cardContain}>
       <Pressable
@@ -14,10 +13,21 @@ const CardPlatos = (props) => {
         <Image source={{uri: props.imagen}} style={styles.image} />
             <Text style={styles.title}>{props.nombre}</Text>
           </Pressable>
+         
+          <Pressable style={styles.boton}
+          onPress={() => {
+            //Agregar a carrito
+          }}
+          >
+            <Text style={styles.title}>BOTON</Text>
+          </Pressable>
       </View>
     )
 }
 const styles = StyleSheet.create({
+  boton:{
+    backgroundColor:"red"
+  },
   cardContain: {
     alignSelf:"center"
   },
