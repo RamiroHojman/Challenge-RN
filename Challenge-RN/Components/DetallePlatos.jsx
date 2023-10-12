@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, Pressable, Image } from "react-native-web";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import carritoProvider from "./Carrito";
 
 const DetallePlatos = (props) => {
   const [platos, setPlatos] = useState([]);
@@ -11,6 +13,7 @@ const DetallePlatos = (props) => {
   const [dairyFree, setDairyFree] = useState("No")
   const [healthScore, setHealthScore] = useState();
   const [healthy, setHealthy] = useState("No");
+  const verificar = useContext(carritoProvider)
 
   const navigation = useNavigation();
   console.log(props.route.params.selectedPlato.idPlato);
@@ -50,27 +53,40 @@ const DetallePlatos = (props) => {
       setHealthy("Sí")
     }
   })
-  
+
   return (
     <View>
-    <Text style={styles.titulo}>{plato.nombre}</Text>
-    <Image source={{ uri: plato.imagen }} style={styles.image} />
-    <View style={styles.info}>
-      <Text style={styles.infoTexto}>Vegetariano: {vegetariano}</Text>
-      <Text style={styles.infoTexto}>Vegano: {vegano}</Text>
-      <Text style={styles.infoTexto}>Apto celíacos: {glutenFree}</Text>
-      <Text style={styles.infoTexto}>Apto lacto intolerantes: {dairyFree}</Text>
-      <Text style={styles.infoTexto}>Muy sano: {healthy} - puntaje saludable: {healthScore}</Text>
-    </View>
+      <Text style={styles.titulo}>{plato.nombre}</Text>
+      <Image source={{ uri: plato.imagen }} style={styles.image} />
+      <Pressable style={styles.boton}
+        onPress={() => {
+          verificar(plato)
+        }}
+      >
+        <MaterialCommunityIcons style={styles.carrito} name="cart-plus" size={20} color="black" />
 
-  </View>
-)
+        {/* <Text style={styles.title}>BOTON</Text> */}
+      </Pressable>
+      <View style={styles.info}>
+        <Text style={styles.infoTexto}>Vegetariano: {vegetariano}</Text>
+        <Text style={styles.infoTexto}>Vegano: {vegano}</Text>
+        <Text style={styles.infoTexto}>Apto celíacos: {glutenFree}</Text>
+        <Text style={styles.infoTexto}>Apto lacto intolerantes: {dairyFree}</Text>
+        <Text style={styles.infoTexto}>Muy sano: {healthy} - puntaje saludable: {healthScore}</Text>
+      </View>
+
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
   infoTexto: {
     fontWeight: '500'
 
+  },
+  carrito: {
+  },
+  boton: {
   },
   info: {
     marginTop: 7,
