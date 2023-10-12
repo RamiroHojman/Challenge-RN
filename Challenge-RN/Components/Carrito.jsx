@@ -6,13 +6,15 @@ const carritoProvider = ({ children }) => {
     const [menu, setMenu] = useState([])
     const [veganos, setVeganos] = useState(0)
     const [not, setNot] = useState(0)
+    const [plato, setPlato] = useState()
 
     const verificar = (plato) => {
         if (plato.vegan && veganos <= 2) {
             setVeganos(veganos++)
-            setMenu(plato)
+            setMenu(...menu, plato)
         }
         else if (!plato.vegan && not <= 2) {
+            setNot(not++)
             setMenu(...menu, plato)
         }
         else {
@@ -21,7 +23,7 @@ const carritoProvider = ({ children }) => {
     }
 
     return (
-        <carritoContext.Provider value={verificar}>
+        <carritoContext.Provider value={[verificar, menu, plato, setPlato]}>
             {children}
         </carritoContext.Provider>
     );

@@ -3,10 +3,10 @@ import { View, Text, StyleSheet, Pressable, Image } from "react-native-web";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import carritoProvider from "./Carrito";
+import { carritoProvider } from "./Carrito";
 
 const DetallePlatos = (props) => {
-  const [platos, setPlatos] = useState([]);
+  const [platos, setPlatos] = useContext(carritoProvider)
   const [vegetariano, setVegetariano] = useState("No");
   const [vegano, setVegano] = useState("No");
   const [glutenFree, setGlutenFree] = useState("No");
@@ -60,7 +60,7 @@ const DetallePlatos = (props) => {
       <Image source={{ uri: plato.imagen }} style={styles.image} />
       <Pressable style={styles.boton}
         onPress={() => {
-          verificar(plato)
+          verificar(platos)
         }}
       >
         <MaterialCommunityIcons style={styles.carrito} name="cart-plus" size={20} color="black" />
