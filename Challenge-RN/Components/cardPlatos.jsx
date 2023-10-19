@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native-web";
 import { useNavigation } from '@react-navigation/native';
-import carritoProvider from "./Carrito";
+// import carritoProvider from "./Carrito";
 //cart-plus
 
 const CardPlatos = (props) => {

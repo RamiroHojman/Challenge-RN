@@ -3,20 +3,10 @@ import { Text, View, StyleSheet, Pressable } from "react-native-web";
 import { useEffect } from "react";
 import CardPlatos from "./CardPlatos";
 import { useNavigation } from "@react-navigation/native";
+import mostrarPlatos from "./PlatosContext"
 const Platos = () => {
 
-    const [listaPlatos, setListaPlatos] = useState([])
-    useEffect(() => {
-        fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
-            // fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=f19d2588061a428fbf8602627a07fde4`)
-
-            .then(res => res.json())
-            .then(data => {
-                console.log(data.results)
-                setListaPlatos(data.results)
-            });
-    }, []);
-    const navigation = useNavigation();
+   
 
     return (
 

@@ -24,9 +24,9 @@ const DetallePlatos = ({ route }) => {
       <Image source={{ uri: platos.image }} style={styles.image} />
       <Text style={styles.title}>HealthScore: {platos.healthScore}</Text>
       <Text style={styles.title}>Precio:{platos.pricePerServing}</Text>
-      <Pressable style={styles.carritoBoton} onPress={() => {carritoProvider()}}>
+      {/* <Pressable style={styles.carritoBoton} onPress={() => {carritoProvider()}}>
       <MaterialCommunityIcons style={styles.carritoIcono} name="cart-plus" size={20} color="white" />
-      </Pressable>
+      </Pressable> */}
     </View>
   );
 };
