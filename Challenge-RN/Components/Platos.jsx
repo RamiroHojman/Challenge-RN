@@ -32,7 +32,7 @@ const Platos = () => {
             </View>
             {
                 listaPlatos.map(item => (
-                    <View style={styles.card}>
+                    <View style={styles.card} key={item.id}>
                         <CardPlatos
                             idPlato={item.id} nombre={item.title} imagen={item.image}
                         />

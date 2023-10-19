@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native-web";
 import { useNavigation } from '@react-navigation/native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import carrito from "./Carrito";
+import carritoProvider from "./Carrito";
 //cart-plus
 
 const CardPlatos = (props) => {
@@ -18,10 +17,9 @@ const CardPlatos = (props) => {
 
       <Pressable style={styles.boton}
         onPress={() => {
-          carrito()
+          carritoProvider()
         }}
       >
-        <MaterialCommunityIcons style={styles.carrito} name="cart-plus" size={20} color="black" />
 
         {/* <Text style={styles.title}>BOTON</Text> */}
       </Pressable>
