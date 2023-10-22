@@ -6,21 +6,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import DetallePlatos from './Components/DetallePlatos'
 import Menu from './Components/Menu';
-
+import PlatosProvider from './Components/PlatosContext'
 const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-     <Stack.Navigator>
-      <Stack.Screen 
-      name="Platos" 
-      component={Platos} 
-      
-      />
-      <Stack.Screen name="DetallePlato" component={DetallePlatos}/>
-      <Stack.Screen name="Menu" component={Menu}/>
-
-    </Stack.Navigator>
+      <PlatosProvider>
+        <Stack.Navigator>
+          <Stack.Screen name="Platos" component={Platos} />
+          <Stack.Screen name="DetallePlato" component={DetallePlatos} />
+          <Stack.Screen name="Menu" component={Menu} />
+        </Stack.Navigator>
+      </PlatosProvider>
     </NavigationContainer>
   );
 }

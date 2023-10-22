@@ -3,18 +3,19 @@ import { Text, View, StyleSheet, Pressable } from "react-native-web";
 import { useEffect } from "react";
 import CardPlatos from "./CardPlatos";
 import { useNavigation } from "@react-navigation/native";
-import mostrarPlatos from "./PlatosContext"
+import {usePlatos} from "./PlatosContext"
 const Platos = () => {
+    const navigation = useNavigation();
 
-   
-
+        const {listaPlatos}= usePlatos()
     return (
 
         <View>
             <View style={styles.menu}>
-                <Pressable style={styles.menuBoton} onPress={() => {
+                <Pressable style={styles.menuBoton} 
+                onPress={() => {
                     navigation.navigate("Menu");
-                }}>
+                  }}>
                     <Text style={styles.textoBoton}>
                         Menu
                     </Text>
