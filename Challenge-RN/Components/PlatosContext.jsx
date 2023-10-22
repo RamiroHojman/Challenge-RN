@@ -9,8 +9,8 @@ export default function PlatosProvider ({children}){
     const [listaPlatosMenu, setListaPlatosMenu] = useState([])
          useEffect(() => {
         const mostrarPlatos = () => {
-            fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
-                // fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=f19d2588061a428fbf8602627a07fde4`)
+            // fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
+                fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=f19d2588061a428fbf8602627a07fde4`)
 
                 .then(res => res.json())
                 .then(data => {
@@ -24,7 +24,7 @@ export default function PlatosProvider ({children}){
     }, []);
     
     const mostrarDetallePlato = (props) =>{
-        console.log("aaa")
+        console.log(props)
         setListaPlatosMenu({props})
     }
     return(
