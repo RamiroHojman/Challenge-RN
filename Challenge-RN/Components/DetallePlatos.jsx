@@ -10,14 +10,13 @@ const DetallePlatos = ({ route }) => {
   const [vegetariano, setVegetariano] = useState("No");
   const [vegano, setVegano] = useState("No");
   const [glutenFree, setGlutenFree] = useState("No");
-  const {platoGuardado} = usePlatos()
-  const {GuardarPlato} = usePlatos([])
+  const { platoGuardado } = usePlatos()
+  const { GuardarPlato } = usePlatos([])
 
   useEffect(() => {
-        // fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=f19d2588061a428fbf8602627a07fde4`)
-
-    
-    fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
+    // fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=f19d2588061a428fbf8602627a07fde4`)
+    // fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
+    fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=e967e1646396460e9d32df8a39bc4b1b`)
       .then((res) => res.json())
       .then((data) => {
         setPlatos(data);
@@ -34,16 +33,15 @@ const DetallePlatos = ({ route }) => {
     if (platos.glutenFree) {
       setGlutenFree("Sí")
     }
-    
+
   })
 
-  
- const funcionCombinada =() =>{
-  GuardarPlato(selectedPlato)
-  // guardarPlato()
-  
- } 
- 
+
+  const funcionCombinada = () => {
+    GuardarPlato(selectedPlato, platos.vegan)
+
+  }
+
   return (
     <View>
       <Image source={{ uri: platos.image }} style={styles.image} />
@@ -52,27 +50,27 @@ const DetallePlatos = ({ route }) => {
       <Text style={styles.title}>Vegetariano: {vegetariano}</Text>
       <Text style={styles.title}>Vegano: {vegano}</Text>
       <Text style={styles.title}>Apto celíacos: {glutenFree}</Text>
-      <Pressable  style={({ pressed }) => [
-          { backgroundColor: pressed ? "#4daa68" : "#60d882" },
-          styles.carritoBoton,
-        ]} onPress={funcionCombinada}>
-      <MaterialCommunityIcons style={styles.carritoIcono} name="cart-plus" size={20} color="white" />
+      <Pressable style={({ pressed }) => [
+        { backgroundColor: pressed ? "#4daa68" : "#60d882" },
+        styles.carritoBoton,
+      ]} onPress={funcionCombinada}>
+        <MaterialCommunityIcons style={styles.carritoIcono} name="cart-plus" size={20} color="white" />
       </Pressable>
-      
+
     </View>
   );
 };
 
 const styles = {
-  carritoIcono:{
+  carritoIcono: {
 
   },
-  carritoBoton:{
-    width:100,
-    height:40,
-    alignItems:"center",
-    justifyContent:"center",
-    borderRadius:4
+  carritoBoton: {
+    width: 100,
+    height: 40,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 4
   },
   image: {
     width: 100,
