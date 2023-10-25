@@ -14,10 +14,10 @@ const DetallePlatos = ({ route }) => {
   const {GuardarPlato} = usePlatos([])
 
   useEffect(() => {
-        fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=f19d2588061a428fbf8602627a07fde4`)
+        // fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=f19d2588061a428fbf8602627a07fde4`)
 
     
-    // fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
+    fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
       .then((res) => res.json())
       .then((data) => {
         setPlatos(data);
@@ -46,14 +46,16 @@ const DetallePlatos = ({ route }) => {
  
   return (
     <View>
-      {console.log(platos)}
       <Image source={{ uri: platos.image }} style={styles.image} />
       <Text style={styles.title}>HealthScore: {platos.healthScore}</Text>
       <Text style={styles.title}>Precio:{platos.pricePerServing}</Text>
       <Text style={styles.title}>Vegetariano: {vegetariano}</Text>
       <Text style={styles.title}>Vegano: {vegano}</Text>
       <Text style={styles.title}>Apto celíacos: {glutenFree}</Text>
-      <Pressable style={styles.carritoBoton} onPress={funcionCombinada}>
+      <Pressable  style={({ pressed }) => [
+          { backgroundColor: pressed ? "#4daa68" : "#60d882" },
+          styles.carritoBoton,
+        ]} onPress={funcionCombinada}>
       <MaterialCommunityIcons style={styles.carritoIcono} name="cart-plus" size={20} color="white" />
       </Pressable>
       
@@ -66,7 +68,6 @@ const styles = {
 
   },
   carritoBoton:{
-    backgroundColor:"#60d882",
     width:100,
     height:40,
     alignItems:"center",

@@ -9,11 +9,11 @@ export default function PlatosProvider ({children}){
     const [platoGuardado, setPlatoGuardado] = useState([])
     const [listaPlatosMenu, setListaPlatosMenu] = useState([])
     const [platosCounter, setPlatosCounter] = useState(0)
-    let nextId = 0
+    let nextId = 1
          useEffect(() => {
         const mostrarPlatos = () => {
-            // fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
-                fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=f19d2588061a428fbf8602627a07fde4`)
+            fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
+                // fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=f19d2588061a428fbf8602627a07fde4`)
 
                 .then(res => res.json())
                 .then(data => {
@@ -28,10 +28,10 @@ export default function PlatosProvider ({children}){
     
     
     const GuardarPlato = (platoGuardado) => {
-        setPlatoGuardado([platoGuardado, {id: nextId++}])
-        console.log(platoGuardado)
+        setPlatoGuardado([platoGuardado])
+        setListaPlatosMenu([...listaPlatosMenu,platoGuardado])
+        
     }
-
     const mostrarDetallePlato = () =>{
         setPlatoMenu('a' + platoGuardado)
     }
