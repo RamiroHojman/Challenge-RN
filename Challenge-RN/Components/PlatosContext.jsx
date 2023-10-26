@@ -32,8 +32,8 @@ export default function PlatosProvider({ children }) {
 
     const GuardarPlato = (platoGuardado, vegano) => {
         if (platosCounter < 4) {
-            if (veganosCounter < 2) {
-                if (noVeganosCounter < 2) {
+            if (vegano) {
+                if (veganosCounter < 2) {
                     console.log(platoGuardado, vegano)
                     setPlatoGuardado([platoGuardado])
                     setListaPlatosMenu([...listaPlatosMenu, platoGuardado])
@@ -41,9 +41,9 @@ export default function PlatosProvider({ children }) {
                     else (setNoVeganosCounter(noVeganosCounter + 1))
                     setPlatosCounter(platosCounter + 1)
                 }
-                else (alert("Error. No se pueden añadir mas platos no veganos"))
+                else (alert("Error. No se pueden añadir mas platos veganos"))
             }
-            else if (veganosCounter > 2) {
+            else if (noVeganosCounter < 2) {
                 if (noVeganosCounter < 2) {
                     console.log(platoGuardado, vegano)
                     setPlatoGuardado([platoGuardado])
@@ -52,7 +52,7 @@ export default function PlatosProvider({ children }) {
                     else (setNoVeganosCounter(noVeganosCounter + 1))
                     setPlatosCounter(platosCounter + 1)
                 }
-                else ("no se pueden añadir más de 4 platos")
+                else ("Error. No se pueden añadir mas platos no veganos")
             }
             else (alert("Error. Deben haber dos platos veganos y dos platos no veganos"))
 
