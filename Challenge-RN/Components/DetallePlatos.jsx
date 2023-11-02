@@ -14,9 +14,9 @@ const DetallePlatos = ({ route }) => {
   const { GuardarPlato } = usePlatos([])
 
   useEffect(() => {
-    // fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=f19d2588061a428fbf8602627a07fde4`)
+    fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=f19d2588061a428fbf8602627a07fde4`)
     // fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
-    fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=e967e1646396460e9d32df8a39bc4b1b`)
+    // fetch(`https://api.spoonacular.com/recipes/${selectedPlato.idPlato}/information?apiKey=e967e1646396460e9d32df8a39bc4b1b`)
       .then((res) => res.json())
       .then((data) => {
         setPlatos(data);
@@ -36,10 +36,9 @@ const DetallePlatos = ({ route }) => {
 
   })
 
-
+  console.log(platos, )
   const funcionCombinada = () => {
-    GuardarPlato(selectedPlato, platos.vegan)
-
+    GuardarPlato(selectedPlato, platos.vegan, platos.pricePerServing, platos.healthScore)
   }
 
   return (
