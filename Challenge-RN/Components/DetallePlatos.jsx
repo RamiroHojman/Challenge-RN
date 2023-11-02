@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, Pressable, Button } from 'react-native';
 import { useEffect, useState } from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { usePlatos } from './PlatosContext';
+import { usePlatos } from '../Context/PlatosContext';
 const DetallePlatos = ({ route }) => {
 
   const selectedPlato = route.params.selectedPlato;

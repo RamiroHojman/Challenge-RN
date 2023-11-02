@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native-web";
 import { useNavigation } from '@react-navigation/native';
 import CardPlatos from "./CardPlatos";
-import { usePlatos } from "./PlatosContext";
+import { usePlatos } from "../Context/PlatosContext";
 const Menu = () => {
     const { listaPlatosMenu } = usePlatos()
     const{precioFinal} = usePlatos()

@@ -1,10 +1,7 @@
 import { useState, useEffect, createContext, useContext } from "react";
 const PlatosContext = createContext()
 export default function PlatosProvider({ children }) {
-    // const [menu, setMenu] = useState([])
-    // const [veganos, setVeganos] = useState(0)
-    // const [not, setNot] = useState(0)
-    // const [plato, setPlato] = useState()
+    
     const [listaPlatos, setListaPlatos] = useState([])
     const [platoGuardado, setPlatoGuardado] = useState([])
     const [listaPlatosMenu, setListaPlatosMenu] = useState([])
@@ -17,8 +14,8 @@ export default function PlatosProvider({ children }) {
     useEffect(() => {
         const mostrarPlatos = () => {
             // fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=e967e1646396460e9d32df8a39bc4b1b`)
-                // fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
-                fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=f19d2588061a428fbf8602627a07fde4`)
+                fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=911c33c63d2a4e72bb77d18c1b2b6bc3`)
+                // fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=f19d2588061a428fbf8602627a07fde4`)
 
                 .then(res => res.json())
                 .then(data => {
