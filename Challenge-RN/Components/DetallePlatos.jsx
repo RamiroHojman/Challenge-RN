@@ -44,11 +44,12 @@ const DetallePlatos = ({ route }) => {
   return (
     <View>
       <Image source={{ uri: platos.image }} style={styles.image} />
-      <Text style={styles.title}>HealthScore: {platos.healthScore}</Text>
-      <Text style={styles.title}>Precio:{platos.pricePerServing}</Text>
-      <Text style={styles.title}>Vegetariano: {vegetariano}</Text>
-      <Text style={styles.title}>Vegano: {vegano}</Text>
-      <Text style={styles.title}>Apto celíacos: {glutenFree}</Text>
+      <Text style={styles.title}>{selectedPlato.nombre}</Text>
+      <Text style={styles.subtitle}>HealthScore: {platos.healthScore}</Text>
+      <Text style={styles.subtitle}>Precio:{platos.pricePerServing}</Text>
+      <Text style={styles.subtitle}>Vegetariano: {vegetariano}</Text>
+      <Text style={styles.subtitle}>Vegano: {vegano}</Text>
+      <Text style={styles.subtitle}>Apto celíacos: {glutenFree}</Text>
       <Pressable style={({ pressed }) => [
         { backgroundColor: pressed ? "#4daa68" : "#60d882" },
         styles.carritoBoton,
@@ -72,14 +73,26 @@ const styles = {
     borderRadius: 4
   },
   image: {
-    width: 100,
-    height: 100,
-    marginBottom: 8,
+    width: 285,
+    height: 158,
+    borderColor: "black",
+    borderWidth: 1,
+    marginTop: 27,
+    marginLeft: 9,
+    alignSelf: "center"
   },
   title: {
-    fontWeight: 'bold',
-    marginBottom: 0,
-    fontSize: 14
+    marginTop: 39,
+    fontSize: 24,
+    marginLeft: 23,
+    fontWeight: '700',
+    marginBottom:5
+  },
+  subtitle: {
+    marginTop: 10,
+    fontSize: 19,
+    marginLeft: 23,
+    fontWeight: '600'
   },
 };
 
